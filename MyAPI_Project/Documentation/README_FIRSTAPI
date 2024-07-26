@@ -1,0 +1,18 @@
+To create virtual enviornment:
+  >>py -3 -m venv <virtual env name>
+
+To activate virtual enviornment:
+  >><virtual env name/Scripts/activiate.bat
+
+To delete virtual env:
+  >>rm - r <virtual env name>
+
+To install fastapi packages:
+  >>pip install fastapi[all]
+
+To start server:
+  >>uvicorn <program name>:app --reload
+
+To check if any process is running in backend:
+  >>netstat -aon | findstr :8000
+  >> TaskKill /PID 28248 /F

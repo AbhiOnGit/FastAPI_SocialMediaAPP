@@ -1,0 +1,4 @@
+In fastapi documentation -> Refer OAuth2 with password section
+
+1. pip install python-jose[cryptography]
+2. from jose import JWTError, jwt

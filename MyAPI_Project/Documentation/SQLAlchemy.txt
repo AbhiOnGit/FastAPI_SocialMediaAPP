@@ -1,0 +1,22 @@
+This file contains infromation to run program main_V2_SQLAlchemy
+
+Program Execution steps:
+1. Open cmd terminal.
+2. Start virtual env
+   D:\Python_API_VSCode >py -3 -m venv venv
+   D:\Python_API_VSCode >venv\Scripts\activate.bat
+3. Go to MyAPI_Project (inside the package)
+   (venv) D:\Python_API_VSCode >cd MyAPI_Project
+4. run server
+   (venv) D:\Python_API_VSCode\cd MyAPI_Project >uvicorn main_V2_SQLAlchemy:app
+
+Modules created:
+1. main_V2_SQLAlchemy.py - main program
+2. database.py - Contains all database related libraries, connection strings and uder defined functions.
+3. models.py - Contains Postgress database model/(table columns) from SQLAlchemy.
+4. schemas - Contains API schema (request body) using Pydantic model.
+
+Good to know:
+1. Schema created in pydantic model can be coverted to dictionary by <modelName>.model_dump()
+2. unpack a dictionary (update ':' to '=' ) - use (**<dictionary name)
+3. pip install passlib[bcrypt]

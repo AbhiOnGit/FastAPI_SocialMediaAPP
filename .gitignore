@@ -1,0 +1,4 @@
+__pycache__
+venv/
+fastapi_notes_v1.xlsx
+.env
