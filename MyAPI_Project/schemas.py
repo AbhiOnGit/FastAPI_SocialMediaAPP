@@ -73,4 +73,11 @@ class UserInfo(BaseModel):
 
 class voterOnPost(BaseModel):    
     # user_id : int
-    userInfo : UserInfo
+    userInfo : UserInfo 
+
+
+class additionInfo(BaseModel):
+    user_mode : bool = True
+    comments : str
+    remarks: str
+    post: updateResponse

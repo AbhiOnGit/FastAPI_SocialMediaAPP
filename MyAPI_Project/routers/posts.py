@@ -22,16 +22,9 @@ def GET_method(db: Session= Depends(get_db),
     #Get all posts belong to user. 
     user = db.query(models.User).filter(models.User.email == user_emailId).first()  
     output = db.query(models.Post).filter(models.Post.user_id == user.id).all()   
-    # print("XXXXXXXXXXXXXXXXXXXXXX", type(output), type(output[0]))
-    # result = db.query(models.Post, func.count(models.Votes.post_id).label("votes")).join(models.Votes
-    #                     , models.Post.id == models.Votes.post_id, 
-    #                     isouter=True).group_by(models.Post.id).filter(models.Post.user_id == user.id).all
-    print("XXXXXXXXXXXX", models.Post.user_id, user.id)
     result = db.query(models.Post,func.count(models.Votes.post_id)).add_columns(func.count(models.Votes.post_id)).join(models.Votes
                         , models.Post.id == models.Votes.post_id, 
                         isouter=True).group_by(models.Post.id).filter(models.Post.user_id == user.id).all()
-    # temp = result[0][1]
-    # print("ZZZZZZZZZZZZZZZZZZZZZZZZZZ",result[0], temp, type(temp))
     return output
 
 
@@ -51,7 +44,7 @@ def GETONE_method(id:int, response : Response, db: Session= Depends(get_db),
     if output.user_id != user.id:
         raise HTTPException(status_code = status.HTTP_403_FORBIDDEN, 
                             detail = f"You are not authorized to view the post with id='{id}'.")
-    
+   
     return output
 
 

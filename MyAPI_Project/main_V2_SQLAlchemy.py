@@ -1,4 +1,3 @@
-import time
 from typing import Optional, List
 from random import randrange
 
@@ -22,9 +21,10 @@ import models                      # import user defined SQLAlchemy database mod
 from routers import posts, users, auth, vote, post1
 
 
-
+### CORS management
+# origins = [*]
 origins = [
-    "https://google.com"
+    "https://www.google.com"
     # "https://localhost.tiangolo.com",
     # "http://localhost",
     # "http://localhost:8080",
@@ -41,7 +41,7 @@ app.add_middleware(
 #IMP - Following line is responsible to create table in postgress database
 models.Base.metadata.create_all(bind=engine)
 
-# app.include_router(post1.router)
+app.include_router(post1.router)
 app.include_router(posts.router)
 app.include_router(users.router)
 app.include_router(auth.router)

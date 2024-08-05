@@ -17,5 +17,4 @@ class Settings(BaseSettings):
         # env_file = "D:\\Python_API_VSCode\\MyAPI_Project\\.env"
         env_file = "D:\\Python_API_VSCode\\.env"
 
-
 setting = Settings()
